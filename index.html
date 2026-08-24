@@ -59,6 +59,7 @@
             object-fit: cover;
             border-radius: 50%;
             border: 2px solid var(--gold);
+            background: var(--gold);
         }
 
         .logo-container h1 {
@@ -188,6 +189,29 @@
             left: 0;
         }
 
+        /* Botón de Demostración Interactiva */
+        .btn-demo {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 25px;
+            background: linear-gradient(135deg, var(--gold), #aa8c2c);
+            color: #070F18;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-demo:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #fff, var(--gold));
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+        }
+
         /* Estilos específicos para portada / héroe */
         .hero-content {
             text-align: center;
@@ -224,7 +248,7 @@
 
         .video-container video {
             width: 100%;
-            height: auto;
+            height: 450px;
             display: block;
         }
 
@@ -247,6 +271,7 @@
             nav { display: none; }
             .hero-content h1 { font-size: 2.5rem; }
             h2.section-title { font-size: 2rem; }
+            .video-container video { height: 280px; }
         }
     </style>
 </head>
@@ -255,8 +280,10 @@
     <!-- Cabecera -->
     <header>
         <div class="logo-container">
-            <!-- Logo incrustado en Base64 para evitar errores de archivos externos en GitHub -->
-            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAP//////////////////////////////////////////////////////////////////////////////////////wgALCAABAAEBAREA/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQABPxA=" alt="Logo Nexus" class="logo-img" id="navLogo">
+            <svg class="logo-img" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100" height="100" fill="#0A2540"/>
+                <text x="50%" y="58%" dominant-baseline="middle" text-anchor="middle" fill="#D4AF37" font-size="45" font-weight="bold" font-family="Arial">NX</text>
+            </svg>
             <h1>NEXUS <span>S.A. DE C.V.</span></h1>
         </div>
         <nav>
@@ -289,31 +316,31 @@
             <div class="grid-cards">
                 <div class="card">
                     <i class="fa-solid fa-building"></i>
-                    <h3>¿Quiénes Somos?[cite: 3]</h3>
-                    <p>Somos NEXUS Servicios Empresariales, S.A. de C.V., una empresa dedicada a brindar soluciones administrativas profesionales[cite: 3], destacándonos por nuestra organización, responsabilidad y confiabilidad[cite: 3].</p>
+                    <h3>¿Quiénes Somos?</h3>
+                    <p>Somos NEXUS Servicios Empresariales, S.A. de C.V., una empresa dedicada a brindar soluciones administrativas profesionales, destacándonos por nuestra organización, responsabilidad y confiabilidad.</p>
                 </div>
                 <div class="card">
                     <i class="fa-solid fa-bullseye"></i>
-                    <h3>Misión[cite: 3]</h3>
-                    <p>Proporcionar soluciones especializadas en gestión de planillas y servicios empresariales con altos estándares de calidad, precisión y confidencialidad[cite: 3].</p>
+                    <h3>Misión</h3>
+                    <p>Proporcionar soluciones especializadas en gestión de planillas y servicios empresariales con altos estándares de calidad, precisión y confidencialidad.</p>
                 </div>
                 <div class="card">
                     <i class="fa-solid fa-eye"></i>
-                    <h3>Visión[cite: 3]</h3>
-                    <p>Consolidarnos como la empresa líder en servicios de gestión empresarial en El Salvador[cite: 3], reconocida por nuestra excelencia, innovación y compromiso[cite: 3].</p>
+                    <h3>Visión</h3>
+                    <p>Consolidarnos como la empresa líder en servicios de gestión empresarial en El Salvador, reconocida por nuestra excelencia, innovación y compromiso.</p>
                 </div>
             </div>
 
             <div class="grid-cards" style="margin-top: 25px;">
                 <div class="card" style="grid-column: span 1 / -1;">
                     <i class="fa-solid fa-gem"></i>
-                    <h3>Nuestros Valores[cite: 3]</h3>
+                    <h3>Nuestros Valores</h3>
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px;">
-                        <div><strong>• Integridad:</strong> Honestidad y ética financiera[cite: 3].</div>
-                        <div><strong>• Confidencialidad:</strong> Protección de información[cite: 3].</div>
-                        <div><strong>• Excelencia:</strong> Alta calidad profesional[cite: 3].</div>
-                        <div><strong>• Compromiso:</strong> Soluciones a su medida[cite: 3].</div>
-                        <div><strong>• Responsabilidad:</strong> Puntualidad en obligaciones[cite: 3].</div>
+                        <div><strong>• Integridad:</strong> Honestidad y ética financiera.</div>
+                        <div><strong>• Confidencialidad:</strong> Protección absoluta de información.</div>
+                        <div><strong>• Excelencia:</strong> Alta calidad profesional.</div>
+                        <div><strong>• Compromiso:</strong> Soluciones a su medida.</div>
+                        <div><strong>• Responsabilidad:</strong> Puntualidad en obligaciones.</div>
                     </div>
                 </div>
             </div>
@@ -327,23 +354,23 @@
             <div class="grid-cards">
                 <div class="card">
                     <i class="fa-solid fa-handshake-angle"></i>
-                    <h3>¿Qué Ofrecemos?[cite: 3]</h3>
-                    <p>Nos encargamos de organizar, procesar y gestionar la información de los colaboradores, facilitando la elaboración de planillas y el control de salarios y deducciones[cite: 3].</p>
+                    <h3>¿Qué Ofrecemos?</h3>
+                    <p>Nos encargamos de organizar, procesar y gestionar la información de los colaboradores, facilitando la elaboración de planillas y el control de salarios y deducciones.</p>
                     <ul style="margin-top: 15px;">
-                        <li>Registro y actualización de información[cite: 3]</li>
-                        <li>Preparación de planillas[cite: 3]</li>
-                        <li>Cálculo de salarios y deducciones[cite: 3]</li>
-                        <li>Reportes administrativos precisos[cite: 3]</li>
+                        <li>Registro y actualización de información</li>
+                        <li>Preparación automatizada de planillas</li>
+                        <li>Cálculo exacto de salarios y deducciones</li>
+                        <li>Reportes administrativos precisos</li>
                     </ul>
                 </div>
                 <div class="card">
                     <i class="fa-solid fa-triangle-exclamation"></i>
-                    <h3>¿Qué pasaría si no contratan el servicio?[cite: 3]</h3>
+                    <h3>¿Qué pasaría si no contratan el servicio?</h3>
                     <ul>
-                        <li>Errores en el cálculo de salarios y descuentos[cite: 3].</li>
-                        <li>Desorganización de la información laboral[cite: 3].</li>
-                        <li>Pérdida de tiempo por procesos manuales[cite: 3].</li>
-                        <li>Riesgo de incumplimientos legales y tributarios[cite: 3].</li>
+                        <li>Errores recurrentes en el cálculo de salarios y descuentos.</li>
+                        <li>Desorganización masiva de la información laboral.</li>
+                        <li>Pérdida excesiva de tiempo por procesos manuales.</li>
+                        <li>Alto riesgo de incumplimientos legales y tributarios.</li>
                     </ul>
                 </div>
             </div>
@@ -354,15 +381,11 @@
                     <i class="fa-solid fa-video"></i> Demostración Audiovisual del Servicio
                 </h3>
                 <div class="video-container">
-                    <!-- Reemplaza "tu-video.mp4" por el nombre de tu archivo de video o sube el video a tu repositorio -->
                     <video controls>
                         <source src="tu-video.mp4" type="video/mp4">
-                        Tu navegador no soporta la reproducción de videos.
+                        Tu navegador no soporta la reproducción de video HTML5.
                     </video>
                 </div>
-                <p style="text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-top: 8px;">
-                    *Nota: Asegúrate de colocar tu archivo de video en la misma carpeta del repositorio con el nombre <code>tu-video.mp4</code> o ajusta el nombre en el código.*
-                </p>
             </div>
         </section>
 
@@ -376,6 +399,10 @@
                 <p style="max-width: 700px; margin: 0 auto; font-size: 1.1rem;">
                     Implementamos herramientas tecnológicas avanzadas para la integración de planillas electrónicas, optimizando los flujos de compensación laboral y garantizando conexiones eficientes y seguras con los requerimientos institucionales.
                 </p>
+                <!-- Botón con el enlace proporcionado -->
+                <a href="https://wportillomartinez881-sketch.github.io/is/index.html" target="_blank" class="btn-demo">
+                    <i class="fa-solid fa-external-link-alt"></i> Probar Aplicación Interactiva
+                </a>
             </div>
         </section>
 
@@ -387,21 +414,21 @@
             <div class="grid-cards">
                 <div class="card">
                     <i class="fa-solid fa-scale-balanced"></i>
-                    <h3>Marco Normativo de El Salvador[cite: 3]</h3>
+                    <h3>Marco Normativo de El Salvador</h3>
                     <ul>
-                        <li>Código de Trabajo de El Salvador[cite: 3]</li>
-                        <li>Ley del Seguro Social (ISSS)[cite: 3]</li>
-                        <li>Ley Integral del Sistema de Pensiones[cite: 3]</li>
-                        <li>Código Tributario[cite: 3]</li>
-                        <li>Ley de Supervisión y Regulación del Sistema Financiero[cite: 3]</li>
+                        <li>Código de Trabajo de El Salvador</li>
+                        <li>Ley del Seguro Social (ISSS)</li>
+                        <li>Ley Integral del Sistema de Pensiones</li>
+                        <li>Código Tributario</li>
+                        <li>Ley de Supervisión y Regulación del Sistema Financiero</li>
                     </ul>
                 </div>
                 <div class="card">
                     <i class="fa-solid fa-file-contract"></i>
-                    <h3>Amparo de la Planilla Única[cite: 3]</h3>
-                    <p>Sustentado principalmente en el <strong>Art. 27 inciso 3º de la Ley Integral del Sistema de Pensiones</strong>[cite: 3]:</p>
+                    <h3>Amparo de la Planilla Única</h3>
+                    <p>Sustentado principalmente en el <strong>Art. 27 inciso 3º de la Ley Integral del Sistema de Pensiones</strong>:</p>
                     <p style="margin-top: 15px; font-style: italic; color: #fff;">
-                        "Que todo empleador debe presentar un sitio web único de todos los trabajadores donde especifique las AFP y el ISSS[cite: 3]."
+                        "Que todo empleador debe presentar un sitio web único de todos los trabajadores donde especifique las AFP y el ISSS."
                     </p>
                 </div>
             </div>
@@ -417,24 +444,24 @@
                     <i class="fa-solid fa-headset"></i>
                     <h3>Proceso de Atención</h3>
                     <ul>
-                        <li><strong>1. Escuchamos:</strong> Atendemos las necesidades específicas[cite: 3].</li>
-                        <li><strong>2. Analizamos:</strong> Evaluamos la estructura operativa[cite: 3].</li>
-                        <li><strong>3. Solucionamos:</strong> Brindamos la estrategia exacta[cite: 3].</li>
-                        <li><strong>4. Comunicamos:</strong> Mantenemos transparencia total[cite: 3].</li>
-                        <li><strong>5. Satisfacemos:</strong> Aseguramos resultados óptimos[cite: 3].</li>
+                        <li><strong>1. Escuchamos:</strong> Atendemos las necesidades específicas.</li>
+                        <li><strong>2. Analizamos:</strong> Evaluamos la estructura operativa.</li>
+                        <li><strong>3. Solucionamos:</strong> Brindamos la estrategia exacta.</li>
+                        <li><strong>4. Comunicamos:</strong> Mantenemos transparencia total.</li>
+                        <li><strong>5. Satisfacemos:</strong> Aseguramos resultados óptimos.</li>
                     </ul>
                 </div>
                 <div class="card">
                     <i class="fa-solid fa-shield-heart"></i>
                     <h3>Valores Agregados</h3>
-                    <p>Nuestra prioridad es tu tranquilidad[cite: 3]. Garantizamos confianza, ahorro significativo de tiempo, eficiencia operativa, atención completamente personalizada y calidad garantizada[cite: 3] en cada proceso.</p>
+                    <p>Nuestra prioridad es tu tranquilidad. Garantizamos confianza, ahorro significativo de tiempo, eficiencia operativa, atención completamente personalizada y calidad garantizada en cada proceso.</p>
                 </div>
             </div>
 
             <!-- Cierre de presentación -->
             <div class="thank-you">
                 <h2>¡GRACIAS!</h2>
-                <p style="font-size: 1.3rem; color: var(--gold); letter-spacing: 2px;">POR SU ATENCIÓN[cite: 3]</p>
+                <p style="font-size: 1.3rem; color: var(--gold); letter-spacing: 2px;">POR SU ATENCIÓN</p>
             </div>
         </section>
 

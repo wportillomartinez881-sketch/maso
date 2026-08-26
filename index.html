@@ -470,19 +470,6 @@
             display: block;
         }
 
-        /* Agradecimiento final */
-        .thank-you {
-            text-align: center;
-            padding: 40px 0;
-        }
-
-        .thank-you h2 {
-            font-size: 4rem;
-            color: var(--gold);
-            margin-bottom: 15px;
-            text-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
-        }
-
         /* Responsive */
         @media(max-width: 900px) {
             header { padding: 15px 20px; }
@@ -650,8 +637,10 @@
                                 <div class="card-body-state" style="padding: 20px;">
                                     <h3><i class="fa-solid fa-handshake-angle"></i> ¿Qué Ofrecemos?</h3>
                                     <ul>
-                                        <li>Registro, actualización y planillas automatizadas.</li>
-                                        <li>Cálculo exacto de salarios y reportes precisos.</li>
+                                        <li>Elaboración de Planilla Única ($64.24)</li>
+                                        <li>Asesoría en Gestión de Planilla Única ($48.08)</li>
+                                        <li>Configuración y Automatización de Planilla ($110.27)</li>
+                                        <li>Revisión y Corrección de Planilla ($52.65)</li>
                                     </ul>
                                 </div>
                             </div>
@@ -766,35 +755,8 @@
                             <ul style="font-size: 0.82rem;">
                                 <li><strong>1. Escuchamos:</strong> Necesidades específicas.</li>
                                 <li><strong>2. Analizamos:</strong> Estructura operativa.</li>
-                                <li><strong>3. Solucionamos:</strong> Estrategia exacta.</li>
-                                <li><strong>4. Comunicamos:</strong> Transparencia total.</li>
-                                <li><strong>5. Satisfacemos:</strong> Resultados óptimos.</li>
                             </ul>
                         </div>
-                    </div>
-
-                    <div class="card-reveal" style="height: 220px; padding: 25px;">
-                        <div class="card-header-state">
-                            <i class="fa-solid fa-shield-heart" style="font-size: 2.8rem; margin-bottom: 10px;"></i>
-                            <h3 style="font-size: 1.3rem;">Valores Agregados</h3>
-                        </div>
-                        <div class="card-body-state" style="padding: 20px;">
-                            <h3 style="font-size: 1.05rem; margin-bottom: 6px;"><i class="fa-solid fa-shield-heart"></i> ¿Por qué elegirnos?</h3>
-                            <p style="font-size: 0.85rem; line-height: 1.4;">Nuestra prioridad es tu tranquilidad. Garantizamos confianza, ahorro significativo de tiempo, eficiencia operativa, atención personalizada y calidad garantizada.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- DIAPOSITIVA 6: Cierre / Gracias -->
-        <section class="slide" id="slide-6">
-            <div class="slide-content-wrapper">
-                <div class="hero-content">
-                    <div class="logo-badge" style="width: 70px; height: 70px; font-size: 2.5rem; margin: 0 auto 25px auto; border-radius: 20px;">N</div>
-                    <div class="thank-you" style="padding: 0;">
-                        <h2 style="font-size: 4rem; color: var(--gold); margin-bottom: 15px; text-shadow: 0 0 25px rgba(212, 175, 55, 0.4);">¡GRACIAS!</h2>
-                        <p style="font-size: 1.3rem; color: var(--text-muted); letter-spacing: 3px; font-weight: 600;">POR SU ATENCIÓN Y CONFIANZA</p>
                     </div>
                 </div>
             </div>
@@ -802,51 +764,26 @@
 
     </div>
 
+    <!-- Script de Navegación de Diapositivas -->
     <script>
         let currentSlide = 0;
-        const totalSlides = 7;
+        const totalSlides = 6;
 
         function goToSlide(n) {
-            if (n < 0 || n >= totalSlides) return;
+            document.getElementById(`slide-${currentSlide}`).classList.remove('active');
+            document.getElementById(`nav-${currentSlide}`).classList.remove('active');
             
-            document.querySelectorAll('.slide').forEach((s) => {
-                s.classList.remove('active');
-            });
+            currentSlide = (n + totalSlides) % totalSlides;
             
-            document.querySelectorAll('.indicator').forEach((ind) => {
-                ind.classList.remove('active');
-            });
-            document.querySelectorAll('nav ul li a').forEach((a) => {
-                a.classList.remove('active');
-            });
-
-            currentSlide = n;
-            document.getElementById('slide-' + currentSlide).classList.add('active');
-            const indElem = document.querySelectorAll('.indicator')[currentSlide];
-            if (indElem) indElem.classList.add('active');
-            const navElem = document.getElementById('nav-' + currentSlide);
-            if (navElem) navElem.classList.add('active');
+            document.getElementById(`slide-${currentSlide}`).classList.add('active');
+            document.getElementById(`nav-${currentSlide}`).classList.add('active');
         }
 
-        function nextSlide() {
-            if (currentSlide < totalSlides - 1) {
-                goToSlide(currentSlide + 1);
-            }
-        }
-
-        function prevSlide() {
-            if (currentSlide > 0) {
-                goToSlide(currentSlide - 1);
-            }
-        }
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
-                e.preventDefault();
-                nextSlide();
-            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
-                e.preventDefault();
-                prevSlide();
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight' || event.key === 'PageDown') {
+                if (currentSlide < totalSlides - 1) goToSlide(currentSlide + 1);
+            } else if (event.key === 'ArrowLeft' || event.key === 'PageUp') {
+                if (currentSlide > 0) goToSlide(currentSlide - 1);
             }
         });
     </script>

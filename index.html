@@ -286,11 +286,11 @@
             height: 100%;
             background: rgba(7, 18, 33, 0.96);
             backdrop-filter: blur(15px);
-            padding: 30px;
+            padding: 20px 25px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             text-align: left;
             opacity: 0;
             transform: translateY(20px);
@@ -298,9 +298,9 @@
         }
 
         .card-reveal .card-body-state h3 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--gold);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -309,17 +309,18 @@
         .card-reveal .card-body-state p, 
         .card-reveal .card-body-state li {
             color: var(--text-muted);
-            font-size: 0.9rem;
-            line-height: 1.5;
+            font-size: 0.82rem;
+            line-height: 1.4;
         }
 
         .card-reveal .card-body-state ul {
             list-style: none;
             padding: 0;
+            width: 100%;
         }
 
         .card-reveal .card-body-state ul li {
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             position: relative;
             padding-left: 15px;
         }
@@ -630,26 +631,28 @@
                     <div>
                         <p style="color: var(--text-muted); margin-bottom: 15px; font-size: 0.9rem;"><i class="fa-solid fa-hand-pointer"></i> Pasa el cursor para ver los detalles:</p>
                         <div class="grid-cards" style="grid-template-columns: 1fr; gap: 15px;">
-                            <div class="card-reveal" style="height: 120px;">
+                            <!-- Altura ajustada a 150px simétrica -->
+                            <div class="card-reveal" style="height: 150px; padding: 15px 20px;">
                                 <div class="card-header-state">
                                     <h3><i class="fa-solid fa-handshake-angle" style="color: var(--gold); margin-right: 10px;"></i> ¿Qué Ofrecemos?</h3>
                                 </div>
-                                <div class="card-body-state" style="padding: 20px;">
+                                <div class="card-body-state" style="padding: 15px 20px;">
                                     <h3><i class="fa-solid fa-handshake-angle"></i> ¿Qué Ofrecemos?</h3>
                                     <ul>
                                         <li>Elaboración de Planilla Única ($64.24)</li>
                                         <li>Asesoría en Gestión de Planilla Única ($48.08)</li>
-                                        <li>Configuración y Automatización de Planilla ($110.27)</li>
+                                        <li>Configuración y Automatización ($110.27)</li>
                                         <li>Revisión y Corrección de Planilla ($52.65)</li>
                                     </ul>
                                 </div>
                             </div>
 
-                            <div class="card-reveal" style="height: 120px;">
+                            <!-- Altura ajustada a 150px simétrica -->
+                            <div class="card-reveal" style="height: 150px; padding: 15px 20px;">
                                 <div class="card-header-state">
                                     <h3><i class="fa-solid fa-triangle-exclamation" style="color: var(--gold); margin-right: 10px;"></i> ¿Sin el Servicio?</h3>
                                 </div>
-                                <div class="card-body-state" style="padding: 20px;">
+                                <div class="card-body-state" style="padding: 15px 20px;">
                                     <h3><i class="fa-solid fa-triangle-exclamation"></i> ¿Qué pasaría?</h3>
                                     <ul>
                                         <li>Errores recurrentes y pérdida de tiempo manual.</li>

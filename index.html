@@ -93,6 +93,44 @@
             100% { transform: translate(0, 0) rotate(0deg); }
         }
 
+        /* Partículas de Luz Dorada Animadas */
+        .gold-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: var(--gold);
+            border-radius: 50%;
+            box-shadow: 0 0 12px 3px rgba(212, 175, 55, 0.8), 0 0 25px 6px rgba(243, 229, 171, 0.4);
+            animation: floatParticle linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(105vh) translateX(0) scale(0.5);
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.9;
+            }
+            80% {
+                opacity: 0.9;
+            }
+            100% {
+                transform: translateY(-10vh) translateX(50px) scale(1.2);
+                opacity: 0;
+            }
+        }
+
         /* Barra de navegación superior */
         header {
             position: fixed;
@@ -485,7 +523,7 @@
 </head>
 <body>
 
-    <!-- Fondo de Olas de Niebla Animadas Estilo 3D -->
+    <!-- Fondo de Olas de Niebla y Partículas Doradas Animadas -->
     <div class="fog-container">
         <div class="wave-bg">
             <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="none">
@@ -507,6 +545,8 @@
             </svg>
         </div>
         <div class="fog-layer"></div>
+        <!-- Capa de partículas de luz dorada dinámicas -->
+        <div class="gold-particles" id="particlesContainer"></div>
     </div>
 
     <!-- Cabecera con Logo "N" Minimalista -->
@@ -631,7 +671,7 @@
                     <div>
                         <p style="color: var(--text-muted); margin-bottom: 15px; font-size: 0.9rem;"><i class="fa-solid fa-hand-pointer"></i> Pasa el cursor para ver los detalles:</p>
                         <div class="grid-cards" style="grid-template-columns: 1fr; gap: 15px;">
-                            <!-- Altura ajustada a 150px simétrica -->
+                            <!-- Altura ajustada simétrica para evitar recortes -->
                             <div class="card-reveal" style="height: 150px; padding: 15px 20px;">
                                 <div class="card-header-state">
                                     <h3><i class="fa-solid fa-handshake-angle" style="color: var(--gold); margin-right: 10px;"></i> ¿Qué Ofrecemos?</h3>
@@ -647,7 +687,7 @@
                                 </div>
                             </div>
 
-                            <!-- Altura ajustada a 150px simétrica -->
+                            <!-- Altura ajustada simétrica para mantener proporción -->
                             <div class="card-reveal" style="height: 150px; padding: 15px 20px;">
                                 <div class="card-header-state">
                                     <h3><i class="fa-solid fa-triangle-exclamation" style="color: var(--gold); margin-right: 10px;"></i> ¿Sin el Servicio?</h3>
@@ -767,7 +807,7 @@
 
     </div>
 
-    <!-- Script de Navegación de Diapositivas -->
+    <!-- Script de Navegación y Generación de Partículas Doradas -->
     <script>
         let currentSlide = 0;
         const totalSlides = 6;
@@ -789,6 +829,32 @@
                 if (currentSlide > 0) goToSlide(currentSlide - 1);
             }
         });
+
+        // Generar partículas doradas flotantes notorias de forma dinámica
+        const particlesContainer = document.getElementById('particlesContainer');
+        const particleCount = 30;
+
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            // Posición horizontal aleatoria
+            const posX = Math.random() * 100;
+            // Tamaño aleatorio entre 4px y 9px para mayor notoriedad
+            const size = Math.random() * 5 + 4;
+            // Duración de animación aleatoria entre 6s y 14s
+            const duration = Math.random() * 8 + 6;
+            // Retardo aleatorio para que no suban todas juntas
+            const delay = Math.random() * 10;
+
+            particle.style.left = `${posX}%`;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.animationDuration = `${duration}s`;
+            particle.style.animationDelay = `${delay}s`;
+
+            particlesContainer.appendChild(particle);
+        }
     </script>
 </body>
 </html>

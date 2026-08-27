@@ -183,13 +183,13 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 20px;
         }
 
         nav ul li a {
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
             transition: color 0.3s;
             cursor: pointer;
@@ -523,7 +523,7 @@
 </head>
 <body>
 
-    <!-- Fondo de Olas Dinámicas y Partículas Doradas -->
+    <!-- Fondo de Olas Dinámicas y Partículas -->
     <div class="fog-container">
         <div class="wave-bg">
             <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="none">
@@ -567,7 +567,7 @@
         </nav>
     </header>
 
-    <!-- Contenedor Principal de Presentación -->
+    <!-- Contenedor Principal de Presentación (7 Diapositivas: 0 a 6) -->
     <div class="presentation-container">
 
         <!-- DIAPOSITIVA 0: Portada -->
@@ -798,12 +798,26 @@
             </div>
         </section>
 
+        <!-- DIAPOSITIVA 6: Cierre / Conclusión -->
+        <section class="slide" id="slide-6">
+            <div class="slide-content-wrapper">
+                <div class="hero-content">
+                    <div class="section-tag" style="margin: 0 auto 20px auto;">Conclusión</div>
+                    <h1>¡GRACIAS POR SU ATENCIÓN!</h1>
+                    <p>NEXUS Servicios Empresariales, S.A. de C.V. — Optimizando el futuro de tu gestión corporativa.</p>
+                    <a href="#" class="btn-demo" onclick="goToSlide(0); return false;">
+                        <i class="fa-solid fa-arrow-rotate-left"></i> Volver al Inicio
+                    </a>
+                </div>
+            </div>
+        </section>
+
     </div>
 
-    <!-- Script de Navegación y Partículas -->
+    <!-- Script de Navegación y Partículas (Total de diapositivas ajustado a 7) -->
     <script>
         let currentSlide = 0;
-        const totalSlides = 6;
+        const totalSlides = 7;
 
         function goToSlide(n) {
             document.getElementById(`slide-${currentSlide}`).classList.remove('active');
